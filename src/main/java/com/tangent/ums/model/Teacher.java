@@ -3,60 +3,67 @@ package com.tangent.ums.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table
 @SequenceGenerator(
         name = "user_gen",
-        sequenceName = "studentSequence",
+        sequenceName = "teacherSequence",
         allocationSize = 1
 )
-public class Student extends User{
+public class Teacher extends User{
 
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private List<Course> registeredCourses;
+    @OneToMany
+    private List<Course> courses;
 
-    public Student() {
+    public Teacher() {
     }
 
-    public Student(Long id, String name, LocalDate dob) {
-        super(id,name,dob);
+    public Teacher(Long id, String name, LocalDate dob, List<Course> courses) {
+        super(id, name, dob);
+        this.courses = courses;
     }
 
-    public Student(String name, LocalDate dob) {
+    public Teacher(String name, LocalDate dob) {
         super(name, dob);
     }
 
+    @Override
     public Long getId() {
         return super.getId();
     }
 
+    @Override
     public void setId(Long id) {
         super.setId(id);
     }
 
+    @Override
     public String getName() {
         return super.getName();
     }
 
+    @Override
     public void setName(String name) {
         super.setName(name);
     }
 
+    @Override
     public LocalDate getDob() {
         return super.getDob();
     }
 
+    @Override
     public void setDob(LocalDate dob) {
         super.setDob(dob);
     }
 
-    public List<Course> getRegisteredCourses() {
-        return registeredCourses;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public void setRegisteredCourses(List<Course> registeredCourses) {
-        this.registeredCourses = registeredCourses;
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
+
 }
