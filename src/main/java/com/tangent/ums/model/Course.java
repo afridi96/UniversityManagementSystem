@@ -13,6 +13,8 @@ public class Course {
     private Long id;
     private String name;
     @ManyToOne
+    private Semester semester;
+    @ManyToOne
     private Teacher teacher;
     @ManyToMany(mappedBy = "registeredCourses")
     private List<Student> studentList;
@@ -20,9 +22,15 @@ public class Course {
     public Course() {
     }
 
-    public Course(Long id, String name, Teacher teacher, List<Student> studentList) {
+    public Course(String name, Semester semester) {
+        this.name = name;
+        this.semester = semester;
+    }
+
+    public Course(Long id, String name, Semester semester, Teacher teacher, List<Student> studentList) {
         this.id = id;
         this.name = name;
+        this.semester = semester;
         this.teacher = teacher;
         this.studentList = studentList;
     }
@@ -47,6 +55,10 @@ public class Course {
         this.name = name;
     }
 
+    public Semester getSemester() { return semester; }
+
+    public void setSemester(Semester semester) { this.semester = semester; }
+
     public Teacher getTeacher() {
         return teacher;
     }
@@ -68,11 +80,11 @@ public class Course {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return getId().equals(course.getId());
+        return getName().equals(course.getName()) && getSemester().equals(course.getSemester());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getName(),getSemester());
     }
 }

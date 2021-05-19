@@ -14,11 +14,11 @@ import java.util.List;
 public class StudentConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
+    CommandLineRunner commandLineRunnerStudent(StudentRepository studentRepository) {
         return args -> {
             Student abdullah = new Student("Abdullah",
                     LocalDate.of(1996, Month.FEBRUARY, 24));
-            Student ali = new Student("Ali",
+            Student ali = new Student(  "Ali",
                     LocalDate.of(1995,Month.JANUARY,12));
             studentRepository.saveAll(List.of(abdullah, ali));
         };
