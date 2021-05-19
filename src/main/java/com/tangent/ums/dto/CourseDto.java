@@ -1,7 +1,5 @@
 package com.tangent.ums.dto;
 
-import com.tangent.ums.model.Teacher;
-
 import java.util.List;
 
 public class CourseDto {
@@ -9,7 +7,7 @@ public class CourseDto {
     private Long id;
     private String name;
     private String semester;
-    private Teacher teacher;
+    private String teacher;
     private List<String> studentList;
 
     public Long getId() {
@@ -36,11 +34,11 @@ public class CourseDto {
         this.semester = semester;
     }
 
-    public Teacher getTeacher() {
+    public String getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
+    public void setTeacher(String teacher) {
         this.teacher = teacher;
     }
 
