@@ -10,7 +10,7 @@ public class CourseDto {
     private String name;
     private String semester;
     private Teacher teacher;
-    private List<StudentDto> studentList;
+    private List<String> studentList;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class CourseDto {
         this.teacher = teacher;
     }
 
-    public List<StudentDto> getStudentList() {
+    public List<String> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<StudentDto> studentList) {
+    public void setStudentList(List<String> studentList) {
         this.studentList = studentList;
     }
 }

@@ -45,7 +45,7 @@ public class CourseController {
         CourseDto courseDto = modelMapper.map(course, CourseDto.class);
         courseDto.setSemester(course.getSemester().getName());
         courseDto.setStudentList(course.getStudentList().stream().
-                map(student -> modelMapper.map(student, StudentDto.class)).collect(Collectors.toList()));
+                map(student -> student.getName()).collect(Collectors.toList()));
         return courseDto;
     }
 }

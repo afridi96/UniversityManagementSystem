@@ -32,8 +32,6 @@ public class StudentController {
 
     @GetMapping(path="{studentId}")
     public StudentDto getStudentById(@PathVariable Long studentId) {
-
-
         return convertToDto(studentService.getStudentById(studentId));
     }
 

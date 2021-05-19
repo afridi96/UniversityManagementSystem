@@ -38,7 +38,7 @@ public class SemesterController {
     private SemesterDto convertToDto(Semester semester) {
         SemesterDto semesterDto = modelMapper.map(semester, SemesterDto.class);
         semesterDto.setOfferedCourses(semester.getOfferedCourses().stream().
-                map(course -> modelMapper.map(course, CourseDto.class)).collect(Collectors.toList()));
+                map(course -> course.getName()).collect(Collectors.toList()));
         return semesterDto;
     }
 }
