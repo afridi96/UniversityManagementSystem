@@ -61,6 +61,8 @@ public class StudentService {
                 orElseThrow(() -> new IllegalStateException("Course not available"));
         if (student.getRegisteredCourses().size() == 5)
             throw new IllegalStateException("Maximum number of courses taken");
+        if(student.getRegisteredCourses().contains(course))
+            throw new IllegalStateException("Course Already Registered");
         student.getRegisteredCourses().add(course);
     }
 

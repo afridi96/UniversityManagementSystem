@@ -1,7 +1,5 @@
 package com.tangent.ums.dto;
 
-import com.tangent.ums.model.Course;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,7 +8,7 @@ public class StudentDto {
     private Long id;
     private String name;
     private LocalDate dob;
-    private List<Course> registeredCourses;
+    private List<String> registeredCourses;
 
     public Long getId() {
         return id;
@@ -36,11 +34,11 @@ public class StudentDto {
         this.dob = dob;
     }
 
-    public List<Course> getRegisteredCourses() {
+    public List<String> getRegisteredCourses() {
         return registeredCourses;
     }
 
-    public void setRegisteredCourses(List<Course> registeredCourses) {
+    public void setRegisteredCourses(List<String> registeredCourses) {
         this.registeredCourses = registeredCourses;
     }
 }
