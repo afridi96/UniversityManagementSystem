@@ -39,6 +39,9 @@ public class TeacherService {
                 orElseThrow(() -> new IllegalStateException("Course does not exist"));
         if (teacher.getCourses().size() == 3)
             throw new IllegalStateException("Maximum number of courses taken");
+        if (teacher.getCourses().contains(course))
+            throw new IllegalStateException("Course already taken");
+        course.setTeacher(teacher);
         teacher.getCourses().add(course);
     }
 }

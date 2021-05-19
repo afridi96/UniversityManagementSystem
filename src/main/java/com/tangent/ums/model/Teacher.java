@@ -13,7 +13,7 @@ import java.util.List;
 )
 public class Teacher extends User{
 
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "teacher")
     private List<Course> courses;
 
     public Teacher() {

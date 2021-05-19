@@ -14,7 +14,7 @@ public class Course {
     private String name;
     @ManyToOne
     private Semester semester;
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    @ManyToOne
     private Teacher teacher;
     @ManyToMany(mappedBy = "registeredCourses")
     private List<Student> studentList;
