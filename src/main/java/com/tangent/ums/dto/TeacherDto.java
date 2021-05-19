@@ -6,7 +6,7 @@ public class TeacherDto {
 
     private Long id;
     private String name;
-    private List<String> courses;
+    private List<CourseDto> courses;
 
     public Long getId() {
         return id;
@@ -24,11 +24,11 @@ public class TeacherDto {
         this.name = name;
     }
 
-    public List<String> getCourses() {
+    public List<CourseDto> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<String> courses) {
+    public void setCourses(List<CourseDto> courses) {
         this.courses = courses;
     }
 }

@@ -1,5 +1,6 @@
 package com.tangent.ums.controller;
 
+import com.tangent.ums.dto.CourseDto;
 import com.tangent.ums.dto.TeacherDto;
 import com.tangent.ums.model.Teacher;
 import com.tangent.ums.service.TeacherService;
@@ -42,7 +43,14 @@ public class TeacherController {
     private TeacherDto convertToDto(Teacher teacher) {
         TeacherDto teacherDto = modelMapper.map(teacher, TeacherDto.class);
         teacherDto.setCourses(teacher.getCourses().stream().
-                map(course -> course.getName()).collect(Collectors.toList()));
+                map(course -> {
+                    CourseDto courseDto = modelMapper.map(course, CourseDto.class);
+                    courseDto.setSemester(course.getSemester().getName());
+//                    courseDto.setTeacher(course.getTeacher().getName());
+                    courseDto.setStudentList(course.getStudentList().stream().
+                            map(student -> student.getName()).collect(Collectors.toList()));
+                    return courseDto;
+                }).collect(Collectors.toList()));
         return teacherDto;
     }
 }
